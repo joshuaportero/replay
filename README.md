@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📜 LifeReplay: Digital Time Capsule
 
-## Getting Started
+**LifeReplay** is a digital legacy service that allows you to seal messages, videos, and memories today to be delivered to yourself or loved ones in the future.
 
-First, run the development server:
+Built with **Next.js** and **Supabase**, this demo showcases the "Sealing Ceremony" and the scheduled "Reveal" of digital memories.
+
+---
+
+## 🚀 The Vision
+
+In a world of instant gratification, LifeReplay focuses on the long-term.
+
+* **Preserve Identity:** Record stories for your future self or children.
+* **Scheduled Delivery:** Set a date-from 5 minutes to 50 years-to unlock the content.
+* **Security First:** Private memories stay private until the moment of truth.
+
+## 🛠️ Tech Stack
+
+* **Frontend:** Next.js 15 (App Router)
+* **Backend/Database:** Supabase (PostgreSQL)
+* **Authentication:** Supabase Auth (Magic Links)
+* **Storage:** Supabase Storage (for video and image assets)
+* **Styling:** Tailwind CSS + Framer Motion (for "unboxing" animations)
+
+## 🏁 Getting Started
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/joshuaportero/replay.git
+cd replay
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Set up Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file in the root directory and add your Supabase credentials:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-## Learn More
+### 3. Install dependencies and run
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open [http://localhost:3000](http://localhost:3000) to see the demo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔒 Key Demo Features
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Magic Link Auth:** Users can sign in instantly without remembering a password.
+2. **The Vault:** Upload a video or text, set a timer, and "seal" it.
+3. **The Reveal:** A dedicated URL that stays locked with a countdown until the `delivery_date` is met.
