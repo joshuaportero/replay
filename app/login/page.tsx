@@ -29,7 +29,14 @@ export default function LoginPage() {
         })
 
         if (error) {
-            setMessage({ type: 'error', text: error.message })
+            if (error.message.includes('rate limit') || error.status === 429) {
+                setMessage({
+                    type: 'error',
+                    text: 'Too many login attempts. Please wait a minute before trying again.'
+                })
+            } else {
+                setMessage({ type: 'error', text: error.message })
+            }
         } else {
             setMessage({ type: 'success', text: 'Check your email for the magic link!' })
         }
