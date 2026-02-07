@@ -3,6 +3,8 @@ import SealMemoryForm from '@/components/SealMemoryForm'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowRight, History, Shield, Clock, LogOut } from 'lucide-react'
+import LoginNotification from '@/components/LoginNotification'
+import { Suspense } from 'react'
 
 export default async function Home() {
   const supabase = await createClient()
@@ -10,6 +12,10 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-4 md:p-24 bg-neutral-50 dark:bg-neutral-950">
+
+      <Suspense fallback={null}>
+        <LoginNotification />
+      </Suspense>
 
       {/* Header / Nav */}
       <header className="w-full max-w-5xl flex justify-between items-center mb-12">
